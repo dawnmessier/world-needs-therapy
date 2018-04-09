@@ -1,7 +1,6 @@
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import { bindActionCreators } from 'redux'
-import {visibilityFilters as FILTER} from '../../store/constants'
 import {fetchPostsIfNeeded} from '../../store/ManagePosts/actions'
 import List from '../../layouts/PostList/list'
 import {filterPosts} from '../../helpers/filters'

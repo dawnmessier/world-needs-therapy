@@ -1,0 +1,30 @@
+[
+    {
+        "id": 0,
+        "topic": "Denial"
+    },
+    {
+        "id": 1,
+        "topic": "Self-Esteem"
+    },
+    {
+        "id": 2,
+        "topic": "Compliance"
+    },
+    {
+        "id": 3,
+        "topic": "Control"
+    },
+    {
+        "id": 4,
+        "topic": "Avoidance"
+    },
+    {
+        "id": 5,
+        "topic": "Anxiety"
+    },
+    {
+        "id": 6,
+        "topic": "Depression"
+    }
+]

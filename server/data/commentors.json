@@ -1,0 +1,29 @@
+[
+    {
+        "id": 0,
+        "firstName": "Commentor",
+        "lastName": "A",
+        "username": "commentorA",
+        "email": "commentorA@mailinator.com",
+        "password": "test123",
+        "permissionId": 3
+    },
+    {
+        "id": 1,
+        "firstName": "Commentor",
+        "lastName": "B",
+        "username": "commentorB",
+        "email": "commentorB@mailinator.com",
+        "password": "test123",
+        "permissionId": 3
+    },
+    {
+        "id": 2,
+        "firstName": "Commentor",
+        "lastName": "C",
+        "username": "commentorC",
+        "email": "commentorC@mailinator.com",
+        "password": "test123",
+        "permissionId": 3
+    }
+]

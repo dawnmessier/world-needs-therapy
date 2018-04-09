@@ -1,0 +1,44 @@
+[
+    {
+        "id": 0,
+        "title": "Post 1",
+        "author": "coolmama0405",
+        "anonymous": false,
+        "statusId": 0,
+        "topicId": 2,
+        "contentType": "html",
+        "content": "<p>This is a very long post</p><p>This is a very long post</p><p>This is a very long post</p><p>This is a very long post</p><p>This is a very long post</p><p>This is a very long post</p><p>This is a very long post</p><p>This is a very long post</p>",
+        "createdAt": "2018-03-28",
+        "updatedAt": "2018-03-29",
+        "videoUrl": "",
+        "imageUrl": ""
+    },
+    {
+        "id": 1,
+        "title": "Post 2",
+        "author": "Anonymous",
+        "anonymous": true,
+        "statusId": 1,
+        "topicId": 4,
+        "contentType": "text",
+        "content": "This is a very long text-type post. This is a very long text-type post. This is a very long text-type post. This is a very long text-type post. This is a very long text-type post. This is a very long text-type post. This is a very long text-type post. This is a very long text-type post. This is a very long text-type post. This is a very long text-type post. This is a very long text-type post.",
+        "createdAt": "2018-03-28",
+        "updatedAt": "2018-03-29",
+        "videoUrl": "",
+        "imageUrl": ""
+    },
+    {
+        "id": 2,
+        "title": "Post 3",
+        "author": "megglesmeg0928",
+        "anonymous": false,
+        "statusId": 1,
+        "topicId": 6,
+        "contentType": "text",
+        "content": "This is a very long text-type post. This is a very long text-type post. This is a very long text-type post. This is a very long text-type post. This is a very long text-type post. This is a very long text-type post. This is a very long text-type post. This is a very long text-type post. This is a very long text-type post. This is a very long text-type post. This is a very long text-type post.",
+        "createdAt": "2018-03-28",
+        "updatedAt": "2018-03-29",
+        "videoUrl": "",
+        "imageUrl": ""
+    }
+]

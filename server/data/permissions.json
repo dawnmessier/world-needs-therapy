@@ -1,0 +1,18 @@
+[
+    {
+        "id": 0,
+        "permissions": "Create, Edit, Delete"
+    },
+    {
+        "id": 1,
+        "permissions": "Create, Edit"
+    },
+    {
+        "id": 2,
+        "permissions": "Create"
+    },
+    {
+        "id": 3,
+        "permissions": "None"
+    }
+]

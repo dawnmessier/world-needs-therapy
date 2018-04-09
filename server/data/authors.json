@@ -1,0 +1,20 @@
+[
+    {
+        "id": 0,
+        "firstName": "Dawn",
+        "lastName": "Messier",
+        "username": "coolmama0405",
+        "email": "coolmama0405@gmail.com",
+        "password": "test123",
+        "permissionId": 0
+    },
+    {
+        "id": 1,
+        "firstName": "Megan",
+        "lastName": "Maestas",
+        "username": "megglesmeg",
+        "email": "megglesmeg0928@gmail.com",
+        "password": "test123",
+        "permissionId": 1
+    }
+]

@@ -1,5 +1,5 @@
 import {constants as C} from '../constants'
-import fetch from 'cross-fetch'
+import {fetchTopicsApi} from './endpoints'
 
 function receiveTopics(json) {
     return {
@@ -11,18 +11,25 @@ function receiveTopics(json) {
 const fetchTopics = () => (dispatch) => {
     dispatch({type: C.REQUEST_TOPICS})
 
-    return fetch('http://localhost:3333/api/topics')
-    .then(response => response.json())
+    return fetchTopicsApi
+    .then(res => {
+        if (res.status >= 400) {
+          throw new Error("Bad Topics response from server");
+        }
+        return res.json();
+    })
     .then(json => dispatch(receiveTopics(json)))
     .then(res => dispatch({type: C.COMPLETE_TOPICS}))
+    .catch(err => console.log(err))
 }
 
 function shouldFetchTopics(state) {
     const topics = state.topics
     if(topics.items.length === 0){
         return true
-    }
-    else if (topics.isFetching) {
+    } else if (topics.isFetching) {
+        return false
+    } else {
         return false
     }
 }

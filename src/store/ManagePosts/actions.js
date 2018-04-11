@@ -1,6 +1,5 @@
 import {constants as C} from '../constants'
-//import postData from '../../data/posts.json'
-import fetch from 'cross-fetch'
+import {fetchPostsApi} from './endpoints'
 
 function receivePosts(json) {
     return {
@@ -12,24 +11,30 @@ function receivePosts(json) {
 const fetchPosts = () => (dispatch) => {
     dispatch({type: C.REQUEST_POSTS})
 
-    return fetch('http://localhost:3333/api/posts')
-    .then(response => response.json())
+    return fetchPostsApi
+    .then(res => {
+        if (res.status >= 400) {
+          throw new Error("Bad Posts response from server");
+        }
+        return res.json();
+    })
     .then(json => dispatch(receivePosts(json)))
     .then(res => dispatch({type: C.COMPLETE_POSTS}))
+    .catch(err => console.log(err))
 }
 
 function shouldFetchPosts(state) {
     const posts = state.posts
     if(posts.items.length === 0){
         return true
-    }
-    else if (posts.isFetching) {
+    } else if (posts.isFetching) {
+        return false
+    } else {
         return false
     }
 }
 
 export const fetchPostsIfNeeded = () => (dispatch, getState) => {
-    console.log('fetching posts');
     if(shouldFetchPosts(getState())){
         return dispatch(fetchPosts())
     } else {

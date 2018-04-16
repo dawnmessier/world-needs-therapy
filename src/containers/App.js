@@ -1,24 +1,25 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import '../stylesheets/App.css';
-import PostList from '../layouts/PostList'
-import ManagePosts from '../layouts/ManagePosts'
-import AddPost from './ManagePosts/addPost'
-import EditPost from './ManagePosts/editPost'
-import DeletePost from './ManagePosts/deletePost'
-import PrimaryLayout from '../layouts/templates/PrimaryLayout'
-import AccountLayout from '../layouts/templates/AccountLayout'
-import Whoops404 from '../layouts/templates/Whoops404'
+import '../stylesheets/app.css';
+import Home from '../layouts/home'
+import Posts from '../layouts/posts'
+import AddPost from './posts/addPost'
+import EditPost from './posts/editPost'
+import DeletePost from './posts/deletePost'
+import PrimaryLayout from '../layouts/templates/primary'
+import AccountLayout from '../layouts/templates/account'
+import Error404 from '../layouts/templates/error404'
+import Links from '../links'
 
 const App = () => (
     <BrowserRouter>
         <Switch>
-            <Route exact path="/" render={() => <PrimaryLayout><PostList/></PrimaryLayout>} />
-            <Route path="/posts/manage" render={() => <AccountLayout><ManagePosts /></AccountLayout>} />
-            <Route path="/posts/add" render={() => <AccountLayout><AddPost /></AccountLayout>} />
-            <Route path="/posts/edit/:id" render={() => <AccountLayout><EditPost /></AccountLayout>} />
-            <Route path="/posts/delete/:id" render={() => <AccountLayout><DeletePost /></AccountLayout>} />
-            <Route component={Whoops404}/>
+            <Route exact path={Links.HOME} render={() => <PrimaryLayout><Home/></PrimaryLayout>} />
+            <Route path={Links.MANAGE_POSTS} render={() => <AccountLayout><Posts /></AccountLayout>} />
+            <Route path={Links.ADD_POST} render={() => <AccountLayout><AddPost /></AccountLayout>} />
+            <Route path={`${Links.EDIT_POST}:id`} render={() => <AccountLayout><EditPost /></AccountLayout>} />
+            <Route path={`${Links.DELETE_POST}:id`} render={() => <AccountLayout><DeletePost /></AccountLayout>} />
+            <Route component={Error404}/>
         </Switch>
     </BrowserRouter>
 )

@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import App from './containers/App';
+import App from './containers/app';
 import './stylesheets/index.css';
 import storeFactory from './store'
 import registerServiceWorker from './registerServiceWorker';
 
 const initialState = {
     visibilityFilter: 'SHOW_ALL',
-    currentPostId: -1,
     posts: {
         isFetching: false,
         items: []

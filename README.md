@@ -6,6 +6,8 @@ Provide personal opinions and stories to improve people's lives by discussing ma
 
 #### Topics
 
+*optional*
+
 - Denial
 - Self-Esteem
 - Compliance
@@ -16,11 +18,11 @@ Provide personal opinions and stories to improve people's lives by discussing ma
 
 ### Tech Stack
 
+*MERN*
+
 - Frontend: React/Redux
 - APIs: NodeJs/Express
-- DB: MySQL
-
-*Version of MERN*
+- DB: Mongo/Mongoose
 
 ### Features/Specs
 
@@ -31,7 +33,7 @@ Provide personal opinions and stories to improve people's lives by discussing ma
 - [ ] Title
 - [ ] Date created/updated
 - [ ] Author (or Anonymous)
-- [ ] Topic
+- [ ] Topics (checkboxes)
 - [ ] Text
 - [ ] Filter by topic
 - [ ] Status: 'public' or 'private'
@@ -49,60 +51,63 @@ Provide personal opinions and stories to improve people's lives by discussing ma
 
 ##### Users/Authors
 
-- Authorized login with permission levels
-    - Add user
-    - Edit user
-    - Delete user
-- Permission levels
-    - 1: basic *Create post*
-    - 2: intermediate *Create and edit posts*
-    - 3: full *Create, edit and delete posts. Account management: user accounts, permission levels and topic list. Publish posts.*
+- Authorized login with role levels
+    - [ ] Add user
+    - [ ] Edit user
+    - [ ] Delete user
+- Role levels
+    - 1: create *Create post*
+    - 2: edit *Edit posts*
+    - 3: delete *Delete posts*
+    - 4: publish *Publish posts.*
+    - 5: account *Account management: user accounts, role levels and topic list*
 - **DB Table: Users**
-    - id: int: required
-    - firstName: nvarchar(40): required
-    - lastName: nvarchar(40): required
-    - username: nvarchar(40): required *(author display name)*
-    - email: nvarchar(256): required
-    - password: nvarchar(256): required *(hashed password)*
-    - permissionId: int: required *(primary key from Permissions table)*
+    - id: Mongoose ObjectId: required
+    - firstName: String(40): required
+    - lastName: String(40): required
+    - username: String(40): required: **UNIQUE** *(author display name)*
+    - email: String(256): required: **UNIQUE**
+    - password: String(256): required *(hashed password)*
+    - roles: [Mongoose ObjectId, Mongoose ObjectId]: required *(primary key from Roles table)*
 
 ##### Posts
 
-- Add post
-- Edit post
-- Delete post
+- [ ] Add post
+- [ ] Edit post
+- [ ] Delete post
 - **DB Table: Posts** (all html safe)
-    - id: int: required
-    - title: nvarchar(200): required
-    - authorId: int: required *(primary key from Users table)*
-    - anonymous: bool: default=false
-    - topicId: int: optional *(primary key from Topics table)*
-    - text: nvarchar(5000): required
+    - id: Mongoose ObjectId: required
+    - title: String(200): required: **UNIQUE**
+    - author: Mongoose ObjectId: required *(primary key from Users table)*
+    - anonymous: Boolean: default=false
+    - topics: [Mongoose ObjectId, Mongoose ObjectId]: optional *(primary key from Topics table)*
+    - contentType: String(20): required
+    - content: String(5000): required
     - dateCreated: datetime: required
     - dateUpdated: datetime: optional
-    - imageUrl: nvarchar(256): optional
-    - videoUrl: nvarchar(256): optional
-    - statusId: int: required *(primary key from Status table)*
+    - imageUrl: String(256): optional
+    - videoUrl: String(256): optional
+    - status: Mongoose ObjectId: required *(primary key from Status table)*
 
 ##### Topics
 
-- Add topic
-- Edit topic
-- Delete topic
+- [ ] Add topic
+- [ ] Edit topic
+- [ ] Delete topic
 - **DB Table: Topics**
-    - id: int: required
-    - topic: nvarchar(52): required
+    - id: Mongoose ObjectId: required
+    - topic: String(52): required: **UNIQUE**
 
 ##### Status
 
 - No CRUD needed
 - **DB Table: Status**
-    - id: int: required
-    - status: nvarchar(40): required
+    - id: Mongoose ObjectId: required
+    - status: String(40): required: **UNIQUE**
 
-##### Permissions
+##### Roles
 
 - No CRUD needed
-- **DB Table: Permissions**
-    - id: int: required
-    - status: nvarchar(12): required
+- **DB Table: Roles**
+    - id: Mongoose ObjectId: required
+    - status: String(12): required: **UNIQUE**

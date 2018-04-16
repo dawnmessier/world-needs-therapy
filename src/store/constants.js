@@ -12,9 +12,7 @@ export const constants = {
     SET_VISIBILITY_FILTER: "SET_VISIBILITY_FILTER",
     ADD_TOPIC: "ADD_TOPIC",
     UPDATE_TOPIC: "UPDATE_TOPIC",
-    REMOVE_TOPIC: "REMOVE_TOPIC",
-    INCREMENT: "INCREMENT",
-    DECREMENT: "DECREMENT"
+    REMOVE_TOPIC: "REMOVE_TOPIC"
 }
 
 export const visibilityFilters = {
